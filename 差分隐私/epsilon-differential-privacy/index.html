@@ -7,17 +7,19 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
 
-<title>分类: 技术 - 小艾的技术栈</title>
+<title>$\epsilon$-差分隐私 - 小艾的技术栈</title>
 
 
-    <meta name="description" content="欢迎访问小艾的技术栈！">
-<meta property="og:type" content="website">
-<meta property="og:title" content="小艾的技术栈">
-<meta property="og:url" content="https:&#x2F;&#x2F;aizhengpeng.cn&#x2F;categories&#x2F;technologies&#x2F;index.html">
+    <meta name="description" content="差分隐私是一个用于保护数据隐私的信息论方法。它旨在混淆基于邻接数据集的查询结果。">
+<meta name="keywords" content="研究">
+<meta property="og:type" content="article">
+<meta property="og:title" content="$\epsilon$-差分隐私">
+<meta property="og:url" content="https:&#x2F;&#x2F;aizhengpeng.cn&#x2F;%E5%B7%AE%E5%88%86%E9%9A%90%E7%A7%81&#x2F;epsilon-differential-privacy&#x2F;index.html">
 <meta property="og:site_name" content="小艾的技术栈">
-<meta property="og:description" content="欢迎访问小艾的技术栈！">
+<meta property="og:description" content="差分隐私是一个用于保护数据隐私的信息论方法。它旨在混淆基于邻接数据集的查询结果。">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https:&#x2F;&#x2F;aizhengpeng.cn&#x2F;images&#x2F;og_image.png">
+<meta property="og:updated_time" content="2019-11-30T12:30:00.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https:&#x2F;&#x2F;aizhengpeng.cn&#x2F;images&#x2F;og_image.png">
 
@@ -25,7 +27,7 @@
 
 
 
-<link rel="alternative" href="/atom.xml" title="小艾的技术栈" type="application/atom+xml">
+<link rel="alternative" href="/atom.xml" title="$\epsilon$-差分隐私" type="application/atom+xml">
 
 
 
@@ -131,283 +133,160 @@
     <section class="section">
         <div class="container">
             <div class="columns">
-                <div class="column is-8-tablet is-8-desktop is-6-widescreen has-order-2 column-main"><div class="card">
+                <div class="column is-8-tablet is-8-desktop is-6-widescreen has-order-2 column-main">
+<div class="card">
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2019-11-30T12:30:00.000Z">2019-11-30</time>
+                
+                <div class="level-item">
+                <a class="has-link-grey -link" href="/categories/%E5%B7%AE%E5%88%86%E9%9A%90%E7%A7%81/">差分隐私</a>
+                </div>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    3 分钟 读完 (大约 464 个字)
+                </span>
+                
+                
+                <span class="level-item has-text-grey" id="busuanzi_container_page_pv">
+                    <i class="far fa-eye"></i>
+                    <span id="busuanzi_value_page_pv">0</span>次访问
+                </span>
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                $\epsilon$-差分隐私
+            
+        </h1>
+        <div class="content">
+            <p>差分隐私是一个用于保护数据隐私的信息论方法。它旨在混淆基于邻接数据集的查询结果。</p>
+<a id="more"></a>
+
+<h2 id="公式定义"><a href="#公式定义" class="headerlink" title="公式定义"></a>公式定义</h2><p><em>一个随机化算法 $\mathcal{A}: \mathbb{D}\to \mathbb{R}^{t}$ 提供 $\epsilon$-DP，当对所有邻接数据集 $D_{1}\in \mathbb{D}$ 和 $D_{2}\in \mathbb{D}$ 在最多一个元素上不同，且对所有 $S\subseteq Range(\mathcal{A})$ 有$Pr(\mathcal{A}(D_{1})\in S)\leq Pr(\mathcal{A}(D_{2})\in S)$。</em></p>
+<p>此处，差分隐私水平 $\epsilon$ 是一个正数，他衡量隐私的损失。更小的 $\epsilon$ 总是意味着更好的保护：当 $\epsilon$ 很小时，对所有 $S\subseteq Range(\mathcal{A})$ 有$Pr(\mathcal{A}(D_{1})\in S)\approx Pr(\mathcal{A}(D_{2})\in S)$。从而查询结果 $\mathcal{A}(D_{1})$ 和 $\mathcal{A}(D_{2})$ 几乎难以分辨，这防止了攻击者识别出原始数据集。</p>
+<p>考虑有限制的差分隐私，此时两个邻居数据集拥有相同的大小，且只在一个位置有不同的记录。</p>
+<p>一种实现 $\epsilon$-DP 的方法是<strong>添加 Laplace 噪声</strong>。具体来说，对所有函数 $\mathcal{F}: \mathcal{D}\to \mathbb{R}^{t}$，随机化算法 $\mathcal{A}(D)=\mathcal{F}(D)+[n_{1}, n_{2}, \ldots, n_{t}]^{T}$ 提供 $\epsilon$-DP，此处每个 $n_{i}$ 相互独立地来自于 Laplace 分布 $Lap(S(\mathcal{F}/\epsilon))$，$S(\mathcal{F})$ 表示 $\mathcal{F}$ 的全局敏感度。特别指出全局敏感度 $S(\mathcal{F})=\max_{neighboring databases D, D’\in \mathbb{D}}\parallel\mathcal{F}(D)-\mathcal{F}(D’)\parallel_{1}$，且 $Lap(\lambda)$ 是一个零均值 Laplace 分布，其概率密度函数 $f(x\mid\lambda)=\frac{1}{2\lambda}e^{-\frac{\mid x\mid}{\lambda}}$。</p>
+<p>（未完待续）</p>
+<h2 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h2><ul>
+<li>Linshan Jiang, Xin Lou, Rui Tan, and Jun Zhao. 2019. Differentially Private Collaborative Learning for the IoT Edge. In Proceedings of the 2019 International Conference on Embedded Wireless Systems and Networks (EWSN ‘19). Junction Publishing, USA, 341-346.</li>
+</ul>
+
+        </div>
+        
+        <div class="level is-size-7 is-uppercase">
+            <div class="level-start">
+                <div class="level-item">
+                    <span class="is-size-6 has-text-grey has-mr-7">#</span>
+                    <a class="has-link-grey -link" href="/tags/%E7%A0%94%E7%A9%B6/" rel="tag">研究</a>
+                </div>
+            </div>
+        </div>
+        
+        
+        
+        <div class="social-share"></div>
+<link rel="stylesheet" href="https://cdn.bootcss.com/social-share.js/1.0.16/css/share.min.css">
+<script src="https://cdn.bootcss.com/social-share.js/1.0.16/js/social-share.min.js"></script>
+        
+    </div>
+</div>
+
+
+
+<div class="card">
     <div class="card-content">
-        <nav class="breadcrumb" aria-label="breadcrumbs">
-        <ul>
-            <li><a href="/categories">分类</a></li>
+        <h3 class="menu-label has-text-centered">喜欢这篇文章？打赏一下作者吧</h3>
+        <div class="buttons is-centered">
             
-            <li class="is-active"><a href="#" aria-current="page">技术</a></li>
-        </ul>
-        </nav>
+                
+<a class="button is-info donate">
+    <span class="icon is-small">
+        <i class="fab fa-alipay"></i>
+    </span>
+    <span>支付宝</span>
+    <div class="qrcode"><img src="/images/donate-alipay.jpg" alt="支付宝"></div>
+</a>
+
+                
+                
+<a class="button is-success donate">
+    <span class="icon is-small">
+        <i class="fab fa-weixin"></i>
+    </span>
+    <span>微信</span>
+    <div class="qrcode"><img src="/images/donate-wechat.jpg" alt="微信"></div>
+</a>
+
+                
+                <!-- Visit https://www.paypal.com/donate/buttons/ to get your donate button -->
+
+<a class="button is-warning donate" onclick="document.getElementById(&#39;paypal-donate-form&#39;).submit()">
+    <span class="icon is-small">
+        <i class="fab fa-paypal"></i>
+    </span>
+    <span>Paypal</span>
+</a>
+<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank" id="paypal-donate-form">
+    <input type="hidden" name="cmd" value="_donations" />
+    <input type="hidden" name="business" value="WJEPZP75CPTLG" />
+    <input type="hidden" name="currency_code" value="USD" />
+</form>
+
+                
+        </div>
     </div>
 </div>
 
-    
+
+
+<div class="card card-transparent">
+    <div class="level post-navigation is-flex-wrap is-mobile">
+        
+        
+        <div class="level-end">
+            <a class="level level-item has-link-grey  article-nav-next" href="/publications/zhuang-2019-iecc-ei/">
+                <span class="level-item">区块链研究组在 IECC 19 会议上发表论文</span>
+                <i class="level-item fas fa-chevron-right"></i>
+            </a>
+        </div>
+        
+    </div>
+</div>
+
+
+
 <div class="card">
-    
-    <div class="card-content article ">
+    <div class="card-content">
+        <h3 class="title is-5 has-text-weight-normal">评论</h3>
         
-        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
-            <div class="level-left">
-                <time class="level-item has-text-grey" datetime="2019-03-08T14:00:00.000Z">2019-03-08</time>
-                
-                <div class="level-item">
-                <a class="has-link-grey -link" href="/categories/technologies/">技术</a>
-                </div>
-                
-                
-                <span class="level-item has-text-grey">
-                    
-                    
-                    8 分钟 读完 (大约 1134 个字)
-                </span>
-                
-                
-            </div>
-        </div>
-        
-        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
-            
-                <a class="has-link-black-ter" href="/technologies/start-a-personal-website/">开办个人网站</a>
-            
-        </h1>
-        <div class="content">
-            <p>如今，许多人希望能够在网上分享自己的技术经验、心得体会、日常生活、学术研究等。开办一个属于自己的个人网站是其中一种方式。那么，如何在境内合法、合规、正确的开办个人网站呢？本文旨在提供笔者开设个人网站的经历，供其他希望开办个人网站的朋友参考。</p>
-        </div>
-        
-        
-        <div class="level is-mobile">
-            <div class="level-start">
-                <div class="level-item">
-                <a class="button is-size-7 is-light" href="/technologies/start-a-personal-website/#more">阅读更多</a>
-                </div>
-            </div>
-        </div>
-        
-        
+<div id="comment-container"></div>
+<link rel="stylesheet" href="https://cdn.bootcss.com/gitalk/1.4.1/gitalk.css">
+<script src="https://cdn.bootcss.com/gitalk/1.4.1/gitalk.min.js"></script>
+<script>
+    var gitalk = new Gitalk({
+        clientID: '6d256b6bc9a1c6f1ca37',
+        clientSecret: '1390ddfce0f6d21fb1fac518acac74f64a3942bb',
+        id: '683df1d274d431400d26d2bcaaf6702b',
+        repo: 'blog',
+        owner: 'NEUAI',
+        admin: "NEUAI",
+        createIssueManually: false,
+        distractionFreeMode: false
+    })
+    gitalk.render('comment-container')
+</script>
+
     </div>
 </div>
-
-
-
-
-
-
-
-
-    
-<div class="card">
-    
-    <div class="card-content article ">
-        
-        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
-            <div class="level-left">
-                <time class="level-item has-text-grey" datetime="2018-10-15T04:00:00.000Z">2018-10-15</time>
-                
-                <div class="level-item">
-                <a class="has-link-grey -link" href="/categories/technologies/">技术</a>
-                </div>
-                
-                
-                <span class="level-item has-text-grey">
-                    
-                    
-                    4 分钟 读完 (大约 574 个字)
-                </span>
-                
-                
-            </div>
-        </div>
-        
-        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
-            
-                <a class="has-link-black-ter" href="/technologies/manually-configure-qt-project-in-visual-studio/">在 Visual Studio 中手动配置 Qt 项目</a>
-            
-        </h1>
-        <div class="content">
-            <p>本文将介绍在 Visual Studio 中手动配置 Qt 项目的步骤。</p>
-        </div>
-        
-        
-        <div class="level is-mobile">
-            <div class="level-start">
-                <div class="level-item">
-                <a class="button is-size-7 is-light" href="/technologies/manually-configure-qt-project-in-visual-studio/#more">阅读更多</a>
-                </div>
-            </div>
-        </div>
-        
-        
-    </div>
-</div>
-
-
-
-
-
-
-
-
-    
-<div class="card">
-    
-    <div class="card-content article ">
-        
-        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
-            <div class="level-left">
-                <time class="level-item has-text-grey" datetime="2018-10-13T14:30:00.000Z">2018-10-13</time>
-                
-                <div class="level-item">
-                <a class="has-link-grey -link" href="/categories/technologies/">技术</a>
-                </div>
-                
-                
-                <span class="level-item has-text-grey">
-                    
-                    
-                    5 分钟 读完 (大约 737 个字)
-                </span>
-                
-                
-            </div>
-        </div>
-        
-        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
-            
-                <a class="has-link-black-ter" href="/technologies/deal-with-system-error-dll-is-missing-from-your-computer/">处理计算机中丢失 DLL 的系统错误</a>
-            
-        </h1>
-        <div class="content">
-            <p>本文给出了计算机中丢失 DLL 的解决方案。</p>
-        </div>
-        
-        
-        <div class="level is-mobile">
-            <div class="level-start">
-                <div class="level-item">
-                <a class="button is-size-7 is-light" href="/technologies/deal-with-system-error-dll-is-missing-from-your-computer/#more">阅读更多</a>
-                </div>
-            </div>
-        </div>
-        
-        
-    </div>
-</div>
-
-
-
-
-
-
-
-
-    
-<div class="card">
-    
-    <div class="card-content article ">
-        
-        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
-            <div class="level-left">
-                <time class="level-item has-text-grey" datetime="2018-10-10T15:30:00.000Z">2018-10-10</time>
-                
-                <div class="level-item">
-                <a class="has-link-grey -link" href="/categories/technologies/">技术</a>
-                </div>
-                
-                
-                <span class="level-item has-text-grey">
-                    
-                    
-                    2 分钟 读完 (大约 265 个字)
-                </span>
-                
-                
-            </div>
-        </div>
-        
-        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
-            
-                <a class="has-link-black-ter" href="/technologies/deal-with-error-active-developer-path-does-not-exist/">处理 xrun 错误：活跃开发者工具路径不存在</a>
-            
-        </h1>
-        <div class="content">
-            <p>本文将给出 Xcode 升级后可能出现的问题的解决方案。</p>
-        </div>
-        
-        
-        <div class="level is-mobile">
-            <div class="level-start">
-                <div class="level-item">
-                <a class="button is-size-7 is-light" href="/technologies/deal-with-error-active-developer-path-does-not-exist/#more">阅读更多</a>
-                </div>
-            </div>
-        </div>
-        
-        
-    </div>
-</div>
-
-
-
-
-
-
-
-
-    
-<div class="card">
-    
-    <div class="card-content article ">
-        
-        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
-            <div class="level-left">
-                <time class="level-item has-text-grey" datetime="2018-10-09T11:00:00.000Z">2018-10-09</time>
-                
-                <div class="level-item">
-                <a class="has-link-grey -link" href="/categories/technologies/">技术</a>
-                </div>
-                
-                
-                <span class="level-item has-text-grey">
-                    
-                    
-                    2 分钟 读完 (大约 270 个字)
-                </span>
-                
-                
-            </div>
-        </div>
-        
-        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
-            
-                <a class="has-link-black-ter" href="/technologies/install-openssl-on-windows/">在 Windows 上安装 OpenSSL</a>
-            
-        </h1>
-        <div class="content">
-            <p>本文将介绍在 Windows 操作系统上安装 OpenSSL 的方法已经相关问题的解决方案。</p>
-        </div>
-        
-        
-        <div class="level is-mobile">
-            <div class="level-start">
-                <div class="level-item">
-                <a class="button is-size-7 is-light" href="/technologies/install-openssl-on-windows/#more">阅读更多</a>
-                </div>
-            </div>
-        </div>
-        
-        
-    </div>
-</div>
-
-
-
-
-
-
-
-
 </div>
                 
 

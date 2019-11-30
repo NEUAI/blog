@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://aizhengpeng.cn/"/>
-  <updated>2019-07-07T04:00:00.000Z</updated>
+  <updated>2019-11-30T12:30:00.000Z</updated>
   <id>https://aizhengpeng.cn/</id>
   
   <author>
@@ -15,6 +15,29 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>$\epsilon$-差分隐私</title>
+    <link href="https://aizhengpeng.cn/%E5%B7%AE%E5%88%86%E9%9A%90%E7%A7%81/epsilon-differential-privacy/"/>
+    <id>https://aizhengpeng.cn/%E5%B7%AE%E5%88%86%E9%9A%90%E7%A7%81/epsilon-differential-privacy/</id>
+    <published>2019-11-30T12:30:00.000Z</published>
+    <updated>2019-11-30T12:30:00.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>差分隐私是一个用于保护数据隐私的信息论方法。它旨在混淆基于邻接数据集的查询结果。</p><a id="more"></a><h2 id="公式定义"><a href="#公式定义" class="headerlink" title="公式定义"></a>公式定义</h2><p><em>一个随机化算法 $\mathcal{A}: \mathbb{D}\to \mathbb{R}^{t}$ 提供 $\epsilon$-DP，当对所有邻接数据集 $D_{1}\in \mathbb{D}$ 和 $D_{2}\in \mathbb{D}$ 在最多一个元素上不同，且对所有 $S\subseteq Range(\mathcal{A})$ 有$Pr(\mathcal{A}(D_{1})\in S)\leq Pr(\mathcal{A}(D_{2})\in S)$。</em></p><p>此处，差分隐私水平 $\epsilon$ 是一个正数，他衡量隐私的损失。更小的 $\epsilon$ 总是意味着更好的保护：当 $\epsilon$ 很小时，对所有 $S\subseteq Range(\mathcal{A})$ 有$Pr(\mathcal{A}(D_{1})\in S)\approx Pr(\mathcal{A}(D_{2})\in S)$。从而查询结果 $\mathcal{A}(D_{1})$ 和 $\mathcal{A}(D_{2})$ 几乎难以分辨，这防止了攻击者识别出原始数据集。</p><p>考虑有限制的差分隐私，此时两个邻居数据集拥有相同的大小，且只在一个位置有不同的记录。</p><p>一种实现 $\epsilon$-DP 的方法是<strong>添加 Laplace 噪声</strong>。具体来说，对所有函数 $\mathcal{F}: \mathcal{D}\to \mathbb{R}^{t}$，随机化算法 $\mathcal{A}(D)=\mathcal{F}(D)+[n_{1}, n_{2}, \ldots, n_{t}]^{T}$ 提供 $\epsilon$-DP，此处每个 $n_{i}$ 相互独立地来自于 Laplace 分布 $Lap(S(\mathcal{F}/\epsilon))$，$S(\mathcal{F})$ 表示 $\mathcal{F}$ 的全局敏感度。特别指出全局敏感度 $S(\mathcal{F})=\max_{neighboring databases D, D’\in \mathbb{D}}\parallel\mathcal{F}(D)-\mathcal{F}(D’)\parallel_{1}$，且 $Lap(\lambda)$ 是一个零均值 Laplace 分布，其概率密度函数 $f(x\mid\lambda)=\frac{1}{2\lambda}e^{-\frac{\mid x\mid}{\lambda}}$。</p><p>（未完待续）</p><h2 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h2><ul><li>Linshan Jiang, Xin Lou, Rui Tan, and Jun Zhao. 2019. Differentially Private Collaborative Learning for the IoT Edge. In Proceedings of the 2019 International Conference on Embedded Wireless Systems and Networks (EWSN ‘19). Junction Publishing, USA, 341-346.</li></ul>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;差分隐私是一个用于保护数据隐私的信息论方法。它旨在混淆基于邻接数据集的查询结果。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="差分隐私" scheme="https://aizhengpeng.cn/categories/%E5%B7%AE%E5%88%86%E9%9A%90%E7%A7%81/"/>
+    
+    
+      <category term="研究" scheme="https://aizhengpeng.cn/tags/%E7%A0%94%E7%A9%B6/"/>
+    
+  </entry>
   
   <entry>
     <title>区块链研究组在 IECC 19 会议上发表论文</title>
