@@ -7,18 +7,19 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
 
-<title>关于 - 小艾的技术栈</title>
+<title>在 Windows 上安装 OpenSSL - 小艾的技术栈</title>
 
 
-    <meta name="description" content="艾峥鹏，东北大学硕士研究生，区块链与信誉系统研究组成员。 教育背景 2015年9月至2019年6月：东北大学软件学院，专业：信息安全，工学学士 2019年9月至今：东北大学软件学院，专业：软件工程，师从刘园副教授  知识水平 大学英语（四级） 大学英语（六级） 计算机技术与软件专业技术资格（中级）：软件设计师 计算机技术与软件专业技术资格（中级）：信息安全工程师  获奖情况 东北大学硕士研究生一等">
-<meta property="og:type" content="website">
-<meta property="og:title" content="关于">
-<meta property="og:url" content="https:&#x2F;&#x2F;aizhengpeng.cn&#x2F;about&#x2F;index.html">
+    <meta name="description" content="本文将介绍在 Windows 操作系统上安装 OpenSSL 的方法已经相关问题的解决方案。">
+<meta name="keywords" content="Windows">
+<meta property="og:type" content="article">
+<meta property="og:title" content="在 Windows 上安装 OpenSSL">
+<meta property="og:url" content="https:&#x2F;&#x2F;aizhengpeng.cn&#x2F;technologies&#x2F;install-openssl-on-windows&#x2F;index.html">
 <meta property="og:site_name" content="小艾的技术栈">
-<meta property="og:description" content="艾峥鹏，东北大学硕士研究生，区块链与信誉系统研究组成员。 教育背景 2015年9月至2019年6月：东北大学软件学院，专业：信息安全，工学学士 2019年9月至今：东北大学软件学院，专业：软件工程，师从刘园副教授  知识水平 大学英语（四级） 大学英语（六级） 计算机技术与软件专业技术资格（中级）：软件设计师 计算机技术与软件专业技术资格（中级）：信息安全工程师  获奖情况 东北大学硕士研究生一等">
+<meta property="og:description" content="本文将介绍在 Windows 操作系统上安装 OpenSSL 的方法已经相关问题的解决方案。">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https:&#x2F;&#x2F;aizhengpeng.cn&#x2F;images&#x2F;og_image.png">
-<meta property="og:updated_time" content="2019-11-30T04:00:00.000Z">
+<meta property="og:updated_time" content="2018-10-09T11:00:00.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https:&#x2F;&#x2F;aizhengpeng.cn&#x2F;images&#x2F;og_image.png">
 
@@ -26,7 +27,7 @@
 
 
 
-<link rel="alternative" href="/atom.xml" title="关于" type="application/atom+xml">
+<link rel="alternative" href="/atom.xml" title="在 Windows 上安装 OpenSSL" type="application/atom+xml">
 
 
 
@@ -100,7 +101,7 @@
                 <a class="navbar-item"
                 href="/tags">标签</a>
                 
-                <a class="navbar-item is-active"
+                <a class="navbar-item"
                 href="/about">关于</a>
                 
                 <a class="navbar-item"
@@ -137,41 +138,71 @@
     
     <div class="card-content article ">
         
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2018-10-09T11:00:00.000Z">2018-10-09</time>
+                
+                <div class="level-item">
+                <a class="has-link-grey -link" href="/categories/technologies/">技术</a>
+                </div>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    2 分钟 读完 (大约 270 个字)
+                </span>
+                
+                
+                <span class="level-item has-text-grey" id="busuanzi_container_page_pv">
+                    <i class="far fa-eye"></i>
+                    <span id="busuanzi_value_page_pv">0</span>次访问
+                </span>
+                
+            </div>
+        </div>
+        
         <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
             
-                关于
+                在 Windows 上安装 OpenSSL
             
         </h1>
         <div class="content">
-            <p>艾峥鹏，东北大学硕士研究生，区块链与信誉系统研究组成员。</p>
-<h2 id="教育背景"><a href="#教育背景" class="headerlink" title="教育背景"></a>教育背景</h2><ul>
-<li>2015年9月至2019年6月：东北大学软件学院，专业：信息安全，工学学士</li>
-<li>2019年9月至今：东北大学软件学院，专业：软件工程，师从<a href="http://faculty.neu.edu.cn/swc/liuyuan/index.html" target="_blank" rel="noopener">刘园副教授</a></li>
+            <p>本文将介绍在 Windows 操作系统上安装 OpenSSL 的方法已经相关问题的解决方案。</p>
+<a id="more"></a>
+
+<h2 id="准备"><a href="#准备" class="headerlink" title="准备"></a>准备</h2><ul>
+<li><p>下载并解压 <a href="https://www.openssl.org" target="_blank" rel="noopener">OpenSSL</a> 的源代码（例如：<a href="https://www.openssl.org/source/openssl-1.1.1.tar.gz" target="_blank" rel="noopener">1.1.1</a>）。</p>
+</li>
+<li><p>下载并安装 <a href="http://strawberryperl.com" target="_blank" rel="noopener">Strawberry Perl</a>（例如：<a href="http://strawberryperl.com/download/5.28.0.1/strawberry-perl-5.28.0.1-64bit.msi" target="_blank" rel="noopener">5.28.0.1 x64</a>）。</p>
+</li>
+<li><p>下载并安装 <a href="https://visualstudio.microsoft.com" target="_blank" rel="noopener">Visual Studio 2017</a>（例如：<a href="https://visualstudio.microsoft.com/thank-you-downloading-visual-studio/?sku=Community&rel=15" target="_blank">Community</a>）。</p>
+</li>
+<li><p>下载并安装 <a href="https://www.nasm.us" target="_blank" rel="noopener">NASM</a>（例如：<a href="https://www.nasm.us/pub/nasm/releasebuilds/2.13.03/win64/nasm-2.13.03-installer-x64.exe" target="_blank" rel="noopener">2.13.03 x64</a>）。你可能需要手动将 NASM 的安装路径添加到 PATH。</p>
+<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2></li>
+<li><p>在开始菜单以管理员身份运行 <strong>VS2017 开发者命令行工具</strong>。</p>
+</li>
+<li><p>将当前路径更改到 OpenSSL 源代码解压到的路径。</p>
+</li>
+<li><p>依次运行下列命令：</p>
+<figure class="highlight powershell hljs"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">perl Configure VC-WIN32</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">nmake</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">nmake test</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">nmake install</span></pre></td></tr></table></figure>
+<pre><code></code></pre></li>
+<li><p>将 “<strong>C:\Program Files (x86)\OpenSSL\bin</strong>“ 添加到 PATH。</p>
+</li>
 </ul>
-<h2 id="知识水平"><a href="#知识水平" class="headerlink" title="知识水平"></a>知识水平</h2><ul>
-<li>大学英语（四级）</li>
-<li>大学英语（六级）</li>
-<li>计算机技术与软件专业技术资格（中级）：软件设计师</li>
-<li>计算机技术与软件专业技术资格（中级）：信息安全工程师</li>
-</ul>
-<h2 id="获奖情况"><a href="#获奖情况" class="headerlink" title="获奖情况"></a>获奖情况</h2><ul>
-<li>东北大学硕士研究生一等学业奖学金，2019年10月</li>
-<li>东北大学研究生校长奖学金，2019年10月</li>
-<li>“建行杯”第五届辽宁省“互联网+”大学生创新创业竞赛：银奖，2019年9月</li>
-<li>第五届中国“互联网+”大学生创新创业竞赛东北大学校内选拔赛：一等奖，2019年7月</li>
-<li>第十一届（2018）全国大学生信息安全竞赛：三等奖，2018年7月</li>
-</ul>
-<h2 id="负责项目"><a href="#负责项目" class="headerlink" title="负责项目"></a>负责项目</h2><ul>
-<li>基于以太坊区块链应用集成开发环境：国家级大学生创新创业训练计划（201910145227），2018年12月至2020年6月</li>
-<li>基于拍卖理论的区块链共识激励机制的研究与实现：毕业设计（论文），2019年1月至6月</li>
-</ul>
-<h2 id="出版物"><a href="#出版物" class="headerlink" title="出版物"></a>出版物</h2><ul>
-<li>Qianwei Zhuang, Yuan Liu, Lisi Chen, and <strong>Zhengpeng Ai</strong>. 2019. Proof of Reputation: A Reputation-based Consensus Protocol for Blockchain Based Systems. In Proceedings of the 2019 International Electronics Communication Conference (IECC ‘19). ACM, New York, NY, USA, 131-138. DOI: <a href="https://doi.org/10.1145/3343147.3343169" target="_blank" rel="noopener">https://doi.org/10.1145/3343147.3343169</a></li>
-</ul>
-<h2 id="联系方式"><a href="#联系方式" class="headerlink" title="联系方式"></a>联系方式</h2><ul>
-<li>电子邮箱：<a href="mailto:im@aizhengpeng.cn">im@aizhengpeng.cn</a></li>
+<h2 id="问题与解决方案"><a href="#问题与解决方案" class="headerlink" title="问题与解决方案"></a>问题与解决方案</h2><ul>
+<li>运行 “<code>perl Configure VC-WIN32</code>“ 时失败。尝试用 “<code>perl Configure VC-WIN32 no-asm</code>“ 替代运行。</li>
 </ul>
 
+        </div>
+        
+        <div class="level is-size-7 is-uppercase">
+            <div class="level-start">
+                <div class="level-item">
+                    <span class="is-size-6 has-text-grey has-mr-7">#</span>
+                    <a class="has-link-grey -link" href="/tags/windows/" rel="tag">Windows</a>
+                </div>
+            </div>
         </div>
         
         
@@ -231,6 +262,20 @@
 
 
 
+<div class="card card-transparent">
+    <div class="level post-navigation is-flex-wrap is-mobile">
+        
+        <div class="level-start">
+            <a class="level level-item has-link-grey  article-nav-prev" href="/technologies/deal-with-error-active-developer-path-does-not-exist/">
+                <i class="level-item fas fa-chevron-left"></i>
+                <span class="level-item">处理 xrun 错误：活跃开发者工具路径不存在</span>
+            </a>
+        </div>
+        
+        
+    </div>
+</div>
+
 
 
 <div class="card">
@@ -244,7 +289,7 @@
     var gitalk = new Gitalk({
         clientID: '6d256b6bc9a1c6f1ca37',
         clientSecret: '1390ddfce0f6d21fb1fac518acac74f64a3942bb',
-        id: 'a7224db13f3a49096aa27c1876d1a947',
+        id: '325e513cbf96ac559bbe564e27bb6e37',
         repo: 'blog',
         owner: 'NEUAI',
         admin: "NEUAI",

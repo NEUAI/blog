@@ -9,13 +9,6 @@
   </url>
   
   <url>
-    <loc>https://aizhengpeng.cn/about-en/index.html</loc>
-    
-    <lastmod>2019-11-30T04:00:00.000Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://aizhengpeng.cn/about/index.html</loc>
     
     <lastmod>2019-11-30T04:00:00.000Z</lastmod>
@@ -23,9 +16,44 @@
   </url>
   
   <url>
-    <loc>https://aizhengpeng.cn/uncategorized/hello-world/</loc>
+    <loc>https://aizhengpeng.cn/about-en/index.html</loc>
     
-    <lastmod>2019-11-29T16:00:00.000Z</lastmod>
+    <lastmod>2019-11-30T04:00:00.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://aizhengpeng.cn/technologies/start-a-personal-website/</loc>
+    
+    <lastmod>2019-03-08T14:00:00.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://aizhengpeng.cn/technologies/manually-configure-qt-project-in-visual-studio/</loc>
+    
+    <lastmod>2018-10-15T04:00:00.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://aizhengpeng.cn/technologies/deal-with-system-error-dll-is-missing-from-your-computer/</loc>
+    
+    <lastmod>2018-10-13T14:30:00.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://aizhengpeng.cn/technologies/deal-with-error-active-developer-path-does-not-exist/</loc>
+    
+    <lastmod>2018-10-10T15:30:00.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://aizhengpeng.cn/technologies/install-openssl-on-windows/</loc>
+    
+    <lastmod>2018-10-09T11:00:00.000Z</lastmod>
     
   </url>
   
