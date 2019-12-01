@@ -227,4 +227,27 @@
     
   </entry>
   
+  <entry>
+    <title>重新安装 Windows 10</title>
+    <link href="https://aizhengpeng.cn/technologies/reinstall-windows-10/"/>
+    <id>https://aizhengpeng.cn/technologies/reinstall-windows-10/</id>
+    <published>2018-01-14T04:00:00.000Z</published>
+    <updated>2019-12-01T15:00:00.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>本文将介绍如何完全重置计算机并重新安装 Windows 10。</p><a id="more"></a><h1 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h1><ol><li>由于需要完全重置计算机，先要将所有需要的文件在 U 盘或移动硬盘上进行备份。</li><li>准备一个至少 8 GB 的 U 盘，保持与计算机的连接状态。</li><li>访问 Microsoft 官网的“<a href="https://www.microsoft.com/zhcn/software-download/windows10" target="_blank" rel="noopener">下载 Windows 10</a>”页面，点击“立即下载工具”，需要保证网络畅通。</li><li>运行该工具， 接受“适用的声明和许可条款”，选择“为另一台电脑创建安装介质（U 盘、 DVD 或 ISO 文件）”，点击“下一步”，开始下载 Windows，等待完成后，选择已经准备好的需要创建安装介质的 U 盘，等待其完成操作，最后点击“完成”即可，得到一个已经有安装文件的卷名为“ESD-USB”的 U 盘，准备工作完成。</li><li>将该 U 盘插入需要完全重置的计算机，通过 UEFI 方式启动该 U 盘（此处可能需要通过选择启动项和修改 BIOS 设置实现，因为不同机型设置方法不同，此处不作详细叙述，可以自行百度）。</li><li>进入安装界面后，按 Shift+F10 运行管理员命令行， 键入 diskpart，开始重新分盘。</li><li>输入 list disk 命令，列出计算机中的所有磁盘。</li><li>输入 select disk 0（如果需要选中其他的磁盘则修改磁盘编号即可），选中 Disk 0 磁盘。</li><li>输入 clean 命令以清除所选磁盘当前的分区和所有数据（注：操作之前请再次确认是否已经备份所有重要文件，操作之后很难再恢复）。</li><li>输入 convert gpt 命令将硬盘从 MBR 模式转换为 GPT 模式。</li><li>输入 create partition efi size=128，创建大小为 128MB 的 EFI 分区。</li><li>输入 create partition msr size=128，创建大小为 128MB 的 MSR 分区。</li><li>输入 create partition primary size=102400，创建大小为 100GB 的主分区（即 C 盘，大小可以根据实际情况进行指定，D、 E 等其他逻辑分区可以等系统安装完成后在系统内进行设置）。</li><li>输入 list partition，查看当前所有的分区，确认无误后输入 exit 退出 diskpart，然后关闭管理员命令行。</li><li>随后根据提示进行操作，没有密钥可以选择“跳过”，选择安装 Windows 的分区时，注意选中指定为 PRIMARY 的分区（即刚刚分配了 100GB 的分区）。</li><li>经过几次重启后，安装完成，进入初始设置界面，同样，如果没有密钥可以选择“跳过”输入密钥的环节，其他设置可以根据需要进行设置，等待设置完成即可进入系统。</li><li>此时即可推出安装 U 盘了，否则进行分区时，U 盘会占用 D 盘这个盘符。</li><li>右击“开始”按钮，点击“计算机管理”，双击左侧的“磁盘管理”，随后即可根据需要“添加卷”（如果只需要 D 盘就可以把余下的空间均分配给 D 盘，其他设置可以按照默认设置即可）。</li><li>至此，完全重置计算机并重新安装 Windows 10 的过程就完成了。</li></ol>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;本文将介绍如何完全重置计算机并重新安装 Windows 10。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="技术" scheme="https://aizhengpeng.cn/categories/technologies/"/>
+    
+    
+      <category term="Windows" scheme="https://aizhengpeng.cn/tags/windows/"/>
+    
+  </entry>
+  
 </feed>
